@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grist One hand grinder (concept)</title>
+  <meta name="description" content="Grist One: a fictional machined-aluminium hand coffee grinder, sold as an inspection drawing. Concept web design project; not a real product.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FF4D00'/%3E%3Crect x='9' y='5' width='14' height='22' fill='none' stroke='%23111' stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#specify">Skip to specify and buy</a>
+
+<header class="bar" id="bar">
+  <a class="bar__mark" href="#top" aria-label="Grist One, top of page"><span>GRIST</span> ONE</a>
+  <nav class="bar__nav" aria-label="Sections">
+    <a href="#teardown">Teardown</a>
+    <a href="#dial">Grind dial</a>
+    <a href="#specify">Specify</a>
+    <a href="#specs">Specs</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <button class="bar__cart" id="cartToggle" aria-expanded="false" aria-controls="cart">Cart <span id="cartCount">0</span></button>
+</header>
+
+<main id="top">
+  <section class="sheet sheet--orange hero" aria-labelledby="h-hero">
+    <div class="hero__copy">
+      <h1 id="h-hero">GRIST<br>ONE</h1>
+      <p class="hero__lede">A hand grinder drawn to be read. 48 mm steel burrs, 0.02 mm a click, 640 g of aluminium. Every part named, every claim checkable below.</p>
+      <div class="hero__actions">
+        <a class="stamp" href="#specify">Specify yours, from $239</a>
+        <a class="textlink" href="#teardown">Take it apart</a>
+      </div>
+    </div>
+    <div class="hero__art" id="heroArt"></div>
+    <dl class="titleblock" aria-label="Drawing title block">
+      <div><dt>Part</dt><dd>GR-01 hand grinder</dd></div>
+      <div><dt>Material</dt><dd>6061-T6 aluminium</dd></div>
+      <div><dt>Scale</dt><dd>NTS (not to scale)</dd></div>
+      <div><dt>Status</dt><dd>Concept. Not a real product.</dd></div>
+    </dl>
+  </section>
+
+  <section class="sheet sheet--graphite teardown" id="teardown" aria-labelledby="h-tear">
+    <div class="teardown__stick">
+      <div class="teardown__art" id="tearArt"></div>
+      <div class="teardown__panel">
+        <h2 id="h-tear">Six parts. Scroll to separate them.</h2>
+        <ol class="partlist" id="partList"></ol>
+        <p class="partnote" id="partNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet sheet--orange dial" id="dial" aria-labelledby="h-dial">
+    <div class="dial__head">
+      <h2 id="h-dial">Count clicks, not guesses.</h2>
+      <p>Each click closes the burr gap by 0.02 mm. Move the dial and read the gap, then pick a brew method to jump to its range.</p>
+    </div>
+    <div class="dial__tool">
+      <label class="dial__label" for="clicks">Clicks from zero</label>
+      <input type="range" id="clicks" min="0" max="60" step="1" value="32" aria-describedby="dialOut">
+      <output id="dialOut" class="dial__out" for="clicks"></output>
+      <div class="dial__scale" aria-hidden="true" id="dialScale"></div>
+      <div class="dial__methods" role="group" aria-label="Jump to a brew method" id="methods"></div>
+    </div>
+    <svg class="dial__field" id="field" viewBox="0 0 520 160" role="img" aria-label="Illustration of relative particle size at the chosen setting"></svg>
+  </section>
+
+  <section class="sheet sheet--alu specify" id="specify" aria-labelledby="h-spec">
+    <div class="specify__art" id="specArt"></div>
+    <form class="specify__form" id="configForm" aria-labelledby="h-spec">
+      <h2 id="h-spec">Specify your unit</h2>
+      <fieldset>
+        <legend>Finish</legend>
+        <div class="opts" id="finishOpts"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Burr set</legend>
+        <div class="opts opts--stack" id="burrOpts"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Extras</legend>
+        <div class="opts opts--stack" id="extraOpts"></div>
+      </fieldset>
+      <div class="buy">
+        <p class="buy__sum" id="sum" aria-live="polite"></p>
+        <button type="submit" class="stamp stamp--ink">Add to cart</button>
+      </div>
+      <p class="fine">Concept only. Nothing ships; prices are invented.</p>
+    </form>
+  </section>
+
+  <section class="sheet sheet--light specs" id="specs" aria-labelledby="h-specs">
+    <div class="specs__col">
+      <h2 id="h-specs">Dimensions and tolerances</h2>
+      <table class="ruled">
+        <caption class="sr">Grist One specification</caption>
+        <tbody id="specRows"></tbody>
+      </table>
+    </div>
+    <div class="specs__col">
+      <h2>Against a typical entry grinder</h2>
+      <p class="fine">Comparison column is an illustrative composite, not a named product.</p>
+      <table class="ruled ruled--compare">
+        <thead><tr><th scope="col">Measure</th><th scope="col">Grist One</th><th scope="col">Typical entry</th></tr></thead>
+        <tbody id="cmpRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sheet sheet--graphite reviews" aria-labelledby="h-rev">
+    <h2 id="h-rev">What sample owners say</h2>
+    <p class="fine">Invented copy for this concept. No real customers exist.</p>
+    <ul class="reviews__list" id="revList"></ul>
+  </section>
+
+  <section class="sheet sheet--alu faq" id="faq" aria-labelledby="h-faq">
+    <h2 id="h-faq">Questions</h2>
+    <div class="faq__list" id="faqList"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><strong>Grist One is a fictional product.</strong> This is a concept web design project: a made-up brand, invented specs, sample reviews and no checkout. Drawn and built as a portfolio piece.</p>
+</footer>
+
+<aside class="cart" id="cart" aria-label="Cart" hidden>
+  <div class="cart__head"><h2>Cart</h2><button class="cart__close" id="cartClose">Close cart</button></div>
+  <ul class="cart__items" id="cartItems"></ul>
+  <p class="cart__empty" id="cartEmpty">Nothing here. Specify a unit to add it.</p>
+  <div class="cart__foot">
+    <p class="cart__total">Total <span id="cartTotal">$0</span></p>
+    <button class="stamp stamp--ink" id="checkout">Checkout</button>
+    <p class="fine" id="checkoutMsg" role="status"></p>
+  </div>
+</aside>
+
+<div class="dock" id="dock"><span class="dock__c">GR-01</span><span class="dock__c dock__cfg" id="dockCfg">Raw, filter burr set</span><span class="dock__c dock__p" id="dockPrice">$239</span><a class="stamp" href="#specify">Specify yours</a></div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
