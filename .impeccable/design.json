@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: Grist One",
+  "extensions": {
+    "colorMeta": {
+      "signal-orange": { "role": "primary", "displayName": "Signal Orange", "canonical": "#ff4d00", "tonalRamp": ["#3d1300", "#6b2100", "#991f00", "#cc3d00", "#ff4d00", "#ff7a40", "#ffa577", "#ffd3bd"] },
+      "ink": { "role": "neutral", "displayName": "Drawing Ink", "canonical": "#111111", "tonalRamp": ["#111111", "#2a2a2a", "#444444", "#5e5e5e", "#7a7a7a", "#979797", "#b8b8b8", "#dcdcdc"] },
+      "graphite": { "role": "neutral", "displayName": "Black-Anodised Graphite", "canonical": "#16181a", "tonalRamp": ["#16181a", "#2a2d30", "#3a3e42", "#51565b", "#6b7177", "#899096", "#aeb3b7", "#d6d9db"] },
+      "aluminium": { "role": "neutral", "displayName": "Bare Aluminium", "canonical": "#cbd0d2", "tonalRamp": ["#3a3e40", "#555a5c", "#71777a", "#8e9497", "#a8aeb1", "#cbd0d2", "#e0e3e4", "#f2f3f4"] },
+      "aluminium-light": { "role": "neutral", "displayName": "Light Aluminium", "canonical": "#e8eaea", "tonalRamp": ["#4a4c4c", "#6a6d6d", "#8a8d8d", "#a9acac", "#c4c7c7", "#e8eaea", "#f1f2f2", "#fafafa"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#eef0f0", "tonalRamp": ["#4d5050", "#6e7272", "#8f9393", "#adb1b1", "#c8cccc", "#eef0f0", "#f5f6f6", "#fbfbfb"] },
+      "muted-on-dark": { "role": "neutral", "displayName": "Muted On Dark", "canonical": "#a9b0b3", "tonalRamp": ["#2c3033", "#434a4d", "#5d6569", "#767f83", "#a9b0b3", "#bcc2c5", "#d0d4d6", "#e5e7e8"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero wordmark only, width axis 70%, uppercase." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2, uppercase condensed 800." },
+      "title": { "displayName": "Title", "purpose": "Part names, option titles, FAQ summaries." },
+      "body": { "displayName": "Body", "purpose": "Copy at 1.0625rem, short measure." },
+      "label": { "displayName": "Label", "purpose": "Legends, title-block terms, table heads; uppercase, 0.1em tracking." },
+      "measure": { "displayName": "Measure", "purpose": "Courier Prime for measured, counted or priced values only." }
+    },
+    "shadows": [
+      { "name": "focus-halo", "value": "0 0 0 6px #111111", "purpose": "Ink halo behind the paper focus ring on dark surfaces (bar, graphite sheets, cart, dock). The only box-shadow in the build." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Explode settle (1.6s), dock slide (0.5s), stamp press, accordion marker (0.3s)." },
+      { "name": "state-fast", "value": "0.2s", "purpose": "Background and colour change on stamps, chips, options and part rows." },
+      { "name": "reduced-motion", "value": "transition/animation 0.01ms; teardown runway becomes static", "purpose": "Reduced-motion fallback." }
+    ],
+    "breakpoints": [
+      { "name": "compose", "value": "960px" },
+      { "name": "narrow", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Stamp Button",
+      "kind": "button",
+      "refersTo": "stamp",
+      "description": "Primary square stamped action on orange sheets; inverts on hover.",
+      "html": "<a class=\"ds-stamp\" href=\"#\">Specify yours, from $239</a>",
+      "css": ".ds-stamp { display: inline-block; background: #111; color: #ff4d00; border: 3px solid #111; padding: 14px 22px; font: 800 1.0625rem 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; } .ds-stamp:hover { background: transparent; color: #111; } .ds-stamp:active { transform: translateY(2px); } .ds-stamp:focus-visible { outline: 3px solid #111; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Stamp Button",
+      "kind": "button",
+      "refersTo": "stamp-ink",
+      "description": "Add to cart and checkout on aluminium and in the cart.",
+      "html": "<button class=\"ds-stamp-ink\">Add to cart</button>",
+      "css": ".ds-stamp-ink { background: #111; color: #eef0f0; border: 3px solid #111; padding: 14px 22px; font: 800 1.0625rem 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-stamp-ink:hover { background: #ff4d00; color: #111; } .ds-stamp-ink:focus-visible { outline: 3px solid #111; outline-offset: 3px; }"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "bar",
+      "description": "Fixed 52px ink bar with wordmark, section links and orange cart button.",
+      "html": "<div class=\"ds-bar\"><a class=\"ds-mark\" href=\"#\"><span>GRIST</span> ONE</a><a class=\"ds-link\" href=\"#\">Teardown</a><a class=\"ds-link\" href=\"#\">Specs</a><button class=\"ds-cart\">Cart 0</button></div>",
+      "css": ".ds-bar { display: flex; align-items: center; gap: 22px; height: 52px; padding: 0 24px; background: #111; color: #eef0f0; font-family: 'Archivo Variable', 'Archivo', sans-serif; } .ds-mark { margin-right: auto; font-stretch: 70%; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.02em; color: inherit; text-decoration: none; } .ds-mark span { color: #ff4d00; } .ds-link { color: inherit; text-decoration: none; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 6px 0; border-bottom: 2px solid transparent; } .ds-link:hover { border-color: #ff4d00; } .ds-cart { background: #ff4d00; color: #111; border: 0; padding: 8px 14px; font: 700 0.875rem 'Archivo Variable', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; } .ds-cart:hover { background: #eef0f0; } .ds-bar a:focus-visible, .ds-cart:focus-visible { outline: 3px solid #eef0f0; outline-offset: 3px; box-shadow: 0 0 0 6px #111; }"
+    },
+    {
+      "name": "Method Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Brew-method jump button; pressed state inverts to ink.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Pour-over</button> <button class=\"ds-chip\" aria-pressed=\"true\">Espresso</button>",
+      "css": ".ds-chip { background: transparent; color: #111; border: 2px solid #111; padding: 8px 12px; font: 700 0.875rem 'Archivo Variable', 'Archivo', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-chip:hover { background: rgba(17,17,17,.12); } .ds-chip[aria-pressed='true'] { background: #111; color: #ff4d00; } .ds-chip:focus-visible { outline: 3px solid #111; outline-offset: 3px; }"
+    },
+    {
+      "name": "Configurator Option",
+      "kind": "custom",
+      "refersTo": "option",
+      "description": "Bordered tile with swatch, title and sub-line; checked fills ink.",
+      "html": "<label class=\"ds-opt\"><input type=\"radio\" name=\"f\" checked><span class=\"ds-sw\"></span><span class=\"ds-t\">Signal Orange</span><span class=\"ds-s\">+$10</span></label>",
+      "css": ".ds-opt { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 12px; border: 2px solid #111; padding: 12px 14px; cursor: pointer; font-family: 'Archivo Variable', 'Archivo', sans-serif; color: #111; transition: background 0.2s, color 0.2s; } .ds-opt:hover { background: rgba(17,17,17,.08); } .ds-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; } .ds-opt:has(input:checked) { background: #111; color: #eef0f0; } .ds-opt:has(input:focus-visible) { outline: 3px solid #111; outline-offset: 3px; } .ds-sw { width: 22px; height: 22px; border: 2px solid #111; background: #ff4d00; grid-row: 1 / 3; } .ds-opt:has(input:checked) .ds-sw { border-color: #eef0f0; } .ds-t { font-weight: 800; font-stretch: 80%; text-transform: uppercase; } .ds-s { font-size: 0.8125rem; grid-column: 2 / -1; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Parts List Row",
+      "kind": "custom",
+      "refersTo": "part-row-current",
+      "description": "Teardown hotspot row on graphite: name left, mono dimension right; current row is orange.",
+      "html": "<div class=\"ds-parts\"><button class=\"ds-row\"><span class=\"ds-name\">1 Handle</span><span class=\"ds-dim\">100 mm</span></button><button class=\"ds-row\" aria-current=\"true\"><span class=\"ds-name\">5 Burr</span><span class=\"ds-dim\">&Oslash; 48 mm</span></button></div>",
+      "css": ".ds-parts { background: #16181a; border-top: 1.5px solid #a9b0b3; width: 360px; } .ds-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1.5px solid #a9b0b3; padding: 11px 10px; color: #eef0f0; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-row:hover { background: rgba(238,240,240,.08); } .ds-row[aria-current='true'] { background: #ff4d00; color: #111; } .ds-name { font: 800 1.125rem 'Archivo Variable', sans-serif; font-stretch: 80%; text-transform: uppercase; } .ds-dim { font: 400 0.875rem 'Courier Prime', 'Courier New', monospace; font-variant-numeric: tabular-nums; } .ds-row:focus-visible { outline: 3px solid #eef0f0; outline-offset: 3px; box-shadow: 0 0 0 6px #111; }"
+    },
+    {
+      "name": "Title Block",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Drawing title block: ruled cells of term and value, anchored at the hero bottom edge.",
+      "html": "<dl class=\"ds-tb\"><div><dt>Part</dt><dd>GR-01 hand grinder</dd></div><div><dt>Material</dt><dd>6061-T6 aluminium</dd></div><div><dt>Scale</dt><dd>NTS</dd></div></dl>",
+      "css": ".ds-tb { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; background: #ff4d00; color: #111; border-top: 3px solid #111; font-family: 'Archivo Variable', 'Archivo', sans-serif; } .ds-tb div { padding: 12px 16px 14px; border-right: 1.5px solid #111; } .ds-tb div:last-child { border-right: 0; } .ds-tb dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; } .ds-tb dd { margin: 0; font-weight: 700; font-size: 0.9375rem; }"
+    },
+    {
+      "name": "Ruled Table",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Borderless spec table: 3px head and closing rules, 1.5px row rules, orange highlight cell.",
+      "html": "<table class=\"ds-ruled\"><thead><tr><th>Measure</th><th>Grist One</th></tr></thead><tbody><tr><th>Burr</th><td class=\"hl\">48 mm</td></tr><tr><th>Weight</th><td>640 g</td></tr></tbody></table>",
+      "css": ".ds-ruled { width: 100%; border-collapse: collapse; background: #e8eaea; color: #111; font-family: 'Archivo Variable', 'Archivo', sans-serif; } .ds-ruled th, .ds-ruled td { text-align: left; padding: 11px 12px 11px 0; border-top: 1.5px solid #111; font-variant-numeric: tabular-nums; } .ds-ruled thead th { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border-top: 3px solid #111; } .ds-ruled tr:last-child th, .ds-ruled tr:last-child td { border-bottom: 3px solid #111; } .ds-ruled td { font-size: 0.9375rem; } .ds-ruled .hl { font-weight: 700; background: #ff4d00; padding-left: 10px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Inspection Sheet",
+    "overview": "The page is an engineering drawing of the object, not lifestyle photography. Linework, dimension lines, numbered balloons, title blocks and ruled tables carry the content; the product is authored in SVG and reused as line art (hero), teardown (graphite) and filled render (configurator). Sections change material rather than colour scheme: anodised signal orange, black-anodised graphite, bare aluminium grey, each a full-bleed sheet.\n\nDensity is high and square. Type is heavy, condensed and capitalised for names; a typewriter mono appears only where something is measured. Everything is a rule, a stroke or a solid fill: no gradients, no cards, no soft shadows, no rounded surfaces.",
+    "keyCharacteristics": [
+      "Full-bleed material sheets stacked vertically; one ink (#111) does all linework on light sheets, paper on graphite.",
+      "Square stamped buttons; 1.5px and 3px ruled lines as the only dividers.",
+      "One SVG grinder drawn once, recoloured by per-sheet custom properties.",
+      "Claims are checkable in place (dial shows microns, parts list shows dimensions).",
+      "Reduced-motion collapses the scroll teardown to a static sheet."
+    ],
+    "rules": [
+      { "name": "The Material Rule", "body": "A section changes its material (orange, graphite, aluminium), never introduces a new hue. Every sheet is built from the seven colours above.", "section": "colors" },
+      { "name": "The One Ink Rule", "body": "Linework on a light sheet is ink; on graphite it is paper. Orange is fill or ground, and on graphite it is the only active-state colour.", "section": "colors" },
+      { "name": "The Measured-Only Mono Rule", "body": "Mono never sets prose or headings; it marks a value that is measured, counted or priced.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Labels, table cells and prices use tabular numerals so columns read like a schedule.", "section": "typography" },
+      { "name": "The Flat Sheet Rule", "body": "Surfaces carry no shadow. Separate with a ruled line or a change of material.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do change a section's material (orange, graphite, aluminium) to change its mood, keeping all colour within the seven tokens.",
+      "Do keep every control square with a 2-3px ink border and a 3px offset focus ring (paper plus a 6px ink halo on dark surfaces).",
+      "Do set names in uppercase condensed 800 and reserve Courier Prime for measured values.",
+      "Do divide with 1.5px or 3px rules; use title blocks and ruled tables for grouped facts.",
+      "Do label concept, sample and invented content where it appears (title block, footer, fine print).",
+      "Do provide a reduced-motion state that shows teardown content statically."
+    ],
+    "donts": [
+      "Don't add gradients, tinted ramps, rounded corners or drop shadows.",
+      "Don't wrap content in cards; use rules, tiles with a 2px border, or bare layout.",
+      "Don't put a centered headline over a product photograph, a three-feature-card row, or a logo strip.",
+      "Don't use mono for prose or headings.",
+      "Don't set orange text on aluminium or light sheets; orange is ground or fill there, text on it is ink."
+    ]
+  }
+}
